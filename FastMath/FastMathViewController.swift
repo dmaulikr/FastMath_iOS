@@ -23,6 +23,9 @@ class FastMathViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var problemStackViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var resultTextViewTopConstraint: NSLayoutConstraint!
+    
     var mathProblem = MathProblem()
     var newMathProblem: (op1: Int, op2: Int, opt: String)! {
         didSet {
@@ -40,6 +43,12 @@ class FastMathViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Only if if is iPhone4
+        if view.bounds.size.height == 480 {
+            problemStackViewTopConstraint.constant = 40
+            resultTextViewTopConstraint.constant = 25
+        }
 
         gameRef = ref.child(mathProblemPath)
         
@@ -51,15 +60,7 @@ class FastMathViewController: UIViewController {
             self.mathProblem.updateValues(val1, op2: val2, operation: val3)
             self.newMathProblem = (val1, val2, val3)
         })
-
-        FIRAuth.auth()?.signInAnonymouslyWithCompletion({ (user, error) in
-            if error != nil {
-                print(error!.description)
-                return
-            } else {
-                print("authenticated \(user!.uid)")
-            }
-        })
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -69,6 +70,10 @@ class FastMathViewController: UIViewController {
     
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    @IBAction func goBackButtonPressed(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
     }
     
     func updateFIRMathProblem() {
@@ -84,7 +89,6 @@ class FastMathViewController: UIViewController {
     func delay(delay:Double, closure:()->()) {
         dispatch_after( dispatch_time( DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), closure)
     }
-    
     
 }
 

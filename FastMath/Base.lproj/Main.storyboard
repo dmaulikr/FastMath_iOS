@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="paP-bF-Z2b">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Billabong.ttf">
+            <string>Billabong</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Fast Math View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -41,7 +47,7 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XNj-i6-8WY">
-                                <rect key="frame" x="193" y="210" width="214" height="102"/>
+                                <rect key="frame" x="193" y="208" width="214" height="102"/>
                                 <color key="backgroundColor" red="0.30588235289999999" green="0.35686274509999999" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="102" id="ln3-4M-wPd"/>
@@ -51,11 +57,25 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="69"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad" keyboardAppearance="alert"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UuB-3d-dVT" userLabel="GoBack">
+                                <rect key="frame" x="0.0" y="30" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="A9S-n3-94A"/>
+                                    <constraint firstAttribute="height" constant="44" id="wPp-3d-Dyu"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="5" minY="8" maxX="25" maxY="10"/>
+                                <state key="normal" image="goBack.png"/>
+                                <connections>
+                                    <action selector="goBackButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ugv-hh-7EQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.18823529411764706" green="0.22745098039215686" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="8Av-Dv-L2F" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="3X1-GC-F7v"/>
-                            <constraint firstItem="XNj-i6-8WY" firstAttribute="top" secondItem="8Av-Dv-L2F" secondAttribute="bottom" constant="47" id="c75-uw-CL8"/>
+                            <constraint firstItem="UuB-3d-dVT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Vq2-Vr-WiM"/>
+                            <constraint firstItem="UuB-3d-dVT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="Y6e-OY-6xG"/>
+                            <constraint firstItem="XNj-i6-8WY" firstAttribute="top" secondItem="8Av-Dv-L2F" secondAttribute="bottom" constant="45" id="c75-uw-CL8"/>
                             <constraint firstItem="XNj-i6-8WY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f1b-C7-pe7"/>
                             <constraint firstItem="8Av-Dv-L2F" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fYo-oL-vrV"/>
                         </constraints>
@@ -63,13 +83,87 @@
                     <connections>
                         <outlet property="firstOperandLabel" destination="ROS-kw-I7F" id="qKL-qR-ERb"/>
                         <outlet property="operationLabel" destination="eWg-xP-Qvv" id="yHi-cj-lcE"/>
+                        <outlet property="problemStackViewTopConstraint" destination="3X1-GC-F7v" id="zC6-h5-LxO"/>
                         <outlet property="resultTextView" destination="XNj-i6-8WY" id="H8s-9z-fmM"/>
+                        <outlet property="resultTextViewTopConstraint" destination="c75-uw-CL8" id="BwG-CC-LOQ"/>
                         <outlet property="secondOperandLabel" destination="iMG-Kp-4C2" id="eu7-JD-gGJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="377" y="223"/>
+            <point key="canvasLocation" x="1692" y="272"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="Vqh-wy-bnj">
+            <objects>
+                <viewController id="fIN-PT-uj5" customClass="MainViewController" customModule="FastMath" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QSR-2Q-ZbG"/>
+                        <viewControllerLayoutGuide type="bottom" id="HaB-LO-P6A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OA5-EG-7aB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fast Math" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dL7-mZ-cZD">
+                                <rect key="frame" x="60" y="80" width="480" height="111"/>
+                                <fontDescription key="fontDescription" name="Billabong" family="Billabong" pointSize="90"/>
+                                <color key="textColor" red="0.93333333333333335" green="0.90980392156862744" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="340-sv-pqS">
+                                <rect key="frame" x="205" y="255" width="190" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="0yb-nD-q8A"/>
+                                    <constraint firstAttribute="height" constant="75" id="AH8-rI-NfV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="play multiplayer">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="VtF-dZ-8R1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.18823529411764706" green="0.22745098039215686" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="340-sv-pqS" firstAttribute="centerX" secondItem="OA5-EG-7aB" secondAttribute="centerX" id="ARF-zc-Fz7"/>
+                            <constraint firstItem="340-sv-pqS" firstAttribute="top" secondItem="dL7-mZ-cZD" secondAttribute="bottom" constant="64" id="QbJ-fZ-3KO"/>
+                            <constraint firstItem="dL7-mZ-cZD" firstAttribute="centerX" secondItem="OA5-EG-7aB" secondAttribute="centerX" id="a4B-1C-hb8"/>
+                            <constraint firstItem="dL7-mZ-cZD" firstAttribute="top" secondItem="QSR-2Q-ZbG" secondAttribute="bottom" constant="60" id="beJ-gS-fjp"/>
+                            <constraint firstAttribute="width" secondItem="dL7-mZ-cZD" secondAttribute="width" multiplier="1.25" id="zON-Qx-3pn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZHr-s9-jnJ"/>
+                    <connections>
+                        <outlet property="playMultiplayerButton" destination="340-sv-pqS" id="0dP-qK-oQe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tF3-bj-r8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1020" y="272"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jgA-GX-ibh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="paP-bF-Z2b" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tpc-ej-Xu7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fIN-PT-uj5" kind="relationship" relationship="rootViewController" id="qsh-IY-9wa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2gy-JH-S9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="208" y="272"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="goBack.png" width="150" height="263"/>
+    </resources>
 </document>

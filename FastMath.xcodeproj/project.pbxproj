@@ -17,6 +17,9 @@
 		C633991B1D21A941004ED3A5 /* FastMathUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C633991A1D21A941004ED3A5 /* FastMathUITests.swift */; };
 		C63399291D21B4B4004ED3A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C63399281D21B4B4004ED3A5 /* GoogleService-Info.plist */; };
 		C633992E1D221AED004ED3A5 /* MathProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C633992D1D221AED004ED3A5 /* MathProblem.swift */; };
+		C63399301D226E2B004ED3A5 /* Billabong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C633992F1D226D92004ED3A5 /* Billabong.ttf */; };
+		C63399321D226F24004ED3A5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63399311D226F24004ED3A5 /* MainViewController.swift */; };
+		C63399341D2275A6004ED3A5 /* goBack.png in Resources */ = {isa = PBXBuildFile; fileRef = C63399331D2275A6004ED3A5 /* goBack.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		C633991C1D21A941004ED3A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C63399281D21B4B4004ED3A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C633992D1D221AED004ED3A5 /* MathProblem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathProblem.swift; sourceTree = "<group>"; };
+		C633992F1D226D92004ED3A5 /* Billabong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Billabong.ttf; sourceTree = "<group>"; };
+		C63399311D226F24004ED3A5 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C63399331D2275A6004ED3A5 /* goBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goBack.png; sourceTree = "<group>"; };
 		E6B788BB9E533F7D82DE0663 /* Pods_FastMath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FastMath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -126,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				C633992D1D221AED004ED3A5 /* MathProblem.swift */,
+				C63399311D226F24004ED3A5 /* MainViewController.swift */,
 				C63398FC1D21A941004ED3A5 /* FastMathViewController.swift */,
 				C63398FE1D21A941004ED3A5 /* Main.storyboard */,
 				C633992A1D21B6F1004ED3A5 /* Supporting Files */,
@@ -159,6 +166,8 @@
 				C63399031D21A941004ED3A5 /* LaunchScreen.storyboard */,
 				C63399061D21A941004ED3A5 /* Info.plist */,
 				C63399281D21B4B4004ED3A5 /* GoogleService-Info.plist */,
+				C633992F1D226D92004ED3A5 /* Billabong.ttf */,
+				C63399331D2275A6004ED3A5 /* goBack.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -270,9 +279,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C63399301D226E2B004ED3A5 /* Billabong.ttf in Resources */,
 				C63399051D21A941004ED3A5 /* LaunchScreen.storyboard in Resources */,
 				C63399291D21B4B4004ED3A5 /* GoogleService-Info.plist in Resources */,
 				C63399021D21A941004ED3A5 /* Assets.xcassets in Resources */,
+				C63399341D2275A6004ED3A5 /* goBack.png in Resources */,
 				C63399001D21A941004ED3A5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +360,7 @@
 				C63398FD1D21A941004ED3A5 /* FastMathViewController.swift in Sources */,
 				C633992E1D221AED004ED3A5 /* MathProblem.swift in Sources */,
 				C63398FB1D21A941004ED3A5 /* AppDelegate.swift in Sources */,
+				C63399321D226F24004ED3A5 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
