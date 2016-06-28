@@ -14,11 +14,22 @@ class FastMathViewController: UIViewController {
     @IBOutlet weak var firstOperandLabel: UILabel!
     @IBOutlet weak var operationLabel: UILabel!
     @IBOutlet weak var secondOperandLabel: UILabel!
-    
     @IBOutlet weak var resultTextView: UITextView! {
         didSet {
             resultTextView.delegate = self
             resultTextView.layer.cornerRadius = 10.0
+            resultTextView.becomeFirstResponder()
+            // Also changes the color of the blinking cursor
+            UITextView.appearance().tintColor = UIColor(red: 238/255, green: 232/255, blue: 199/255, alpha: 1.0)
+        }
+    }
+    
+    var mathProblem = MathProblem()
+    var newMathProblem: (op1: Int, op2: Int, opt: String)! {
+        didSet {
+            firstOperandLabel.text = String(newMathProblem.op1)
+            operationLabel.text = newMathProblem.opt
+            secondOperandLabel.text = String(newMathProblem.op2)
         }
     }
     
@@ -30,25 +41,17 @@ class FastMathViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         gameRef = ref.child(mathProblemPath)
         
         refHandle = gameRef.observeEventType(.Value, withBlock: { (snapshot) in
-            print("some value changed")
-            print(snapshot.childrenCount)
-            print(snapshot.childSnapshotForPath("op1"))
-            let val = snapshot.childSnapshotForPath("op1").value as! Int
-            self.thirdbttnlabel.setTitle(String(val), forState: .Normal)
+            let val1 = snapshot.childSnapshotForPath("op1").value as! Int
+            let val2 = snapshot.childSnapshotForPath("op2").value as! Int
+            let val3 = snapshot.childSnapshotForPath("operation").value as! String
+            self.mathProblem.updateValues(val1, op2: val2, operation: val3)
+            self.newMathProblem = (val1, val2, val3)
         })
-        
-        let mathProblem = MathProblem()
-        print(mathProblem.result)
-        mathProblem.updateValues(8, op2: 2, operation: "+")
-        print(mathProblem.result)
-        
-        
-        
+
         FIRAuth.auth()?.signInAnonymouslyWithCompletion({ (user, error) in
             if error != nil {
                 print(error!.description)
@@ -58,41 +61,52 @@ class FastMathViewController: UIViewController {
             }
         })
     }
-
-    @IBAction func firstbutton(sender: AnyObject) {
-        ref.child("math").child("op1").setValue(69)
-        
-    }
-
-    @IBAction func secondbutton(sender: AnyObject) {
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
     
-    @IBAction func thridbutton(sender: AnyObject) {
-        resultTextView.shake()
+    func updateFIRMathProblem() {
+        let values:[String : AnyObject] = [
+            "op1": newMathProblem.op1,
+            "op2": newMathProblem.op2,
+            "operation": newMathProblem.opt
+        ]
+        ref.child(mathProblemPath).setValue(values)
     }
-    @IBOutlet weak var thirdbttnlabel: UIButton!
+    
+    // Executes code in closure after delay (seconds)
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after( dispatch_time( DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), closure)
+    }
+    
+    
 }
 
 extension FastMathViewController: UITextViewDelegate {
     
     func textViewDidChange(textView: UITextView) {
-        // check if answer is correct
-        
-        let length = textView.text.characters.count
-        if length == 3 {
-            // Only a max of three numbers is allowed
-            // Indicate answer is wrong by shaking textView and empty answer
-            
-            // shake textview duration 0.75, on completion clear out text
-            textView.text = ""
+        if mathProblem.result == Int(textView.text) {
+            delay(0.15) { textView.text = "" }
+            newMathProblem = mathProblem.generateValues()
+            updateFIRMathProblem()
+            print("The new result is \(mathProblem.result)")
+        } else {
+            let length = textView.text.characters.count
+            if length == 3 {
+                textView.shake()
+                delay(0.3) { textView.text = "" }
+            } else if length > 3 {
+                // Drops the last characters, giving the effect that only 3 chars are allowed
+                textView.text = String(textView.text.characters.dropLast())
+            }
         }
-        print("textview changed")
     }
-
+    
 }
 
-
 extension UIView {
+    // Shake animation used on wrong answer
     // http://stackoverflow.com/questions/27987048/shake-animation-for-uitextfield-uiview-in-swift
     func shake() {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
@@ -102,6 +116,5 @@ extension UIView {
         layer.addAnimation(animation, forKey: "shake")
     }
 }
-
 
 

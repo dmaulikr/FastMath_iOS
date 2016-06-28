@@ -41,7 +41,24 @@ class MathProblem {
         operation = op
         result = performOperation()
     }
+    
+    func generateValues() -> (op1: Int, op2: Int, opt: String) {
+        let rand1 = Int(arc4random_uniform(100)) + 1 // range [1,100]
+        var rand2: Int!
+        let randOpers = Int(arc4random_uniform(2)) // Random 0 or 1
+        let opers = ["+","−"]
         
+        if opers[randOpers] == "−" {
+            // Doesn't allow a negative result
+            rand2 = Int(arc4random_uniform(UInt32(rand1))) + 1 // range [1, rand1]
+        } else {
+            rand2 = Int(arc4random_uniform(100)) + 1 // range [1,100]
+        }
         
-
+        updateValues(rand1, op2: rand2, operation: opers[randOpers])
+        return (rand1, rand2, opers[randOpers])
+    }
+    
 }
+
+

@@ -17,27 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5j-yt-sMJ">
-                                <rect key="frame" x="12" y="20" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="firstbutton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e18-Do-4Jo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBR-CP-2KO">
-                                <rect key="frame" x="12" y="60" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="secondbutton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7o0-p3-8Mo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Cq-SE-zBI">
-                                <rect key="frame" x="12" y="108" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="thridbutton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uoY-zt-InP"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8Av-Dv-L2F">
                                 <rect key="frame" x="182" y="80" width="236" height="83"/>
                                 <subviews>
@@ -86,7 +65,6 @@
                         <outlet property="operationLabel" destination="eWg-xP-Qvv" id="yHi-cj-lcE"/>
                         <outlet property="resultTextView" destination="XNj-i6-8WY" id="H8s-9z-fmM"/>
                         <outlet property="secondOperandLabel" destination="iMG-Kp-4C2" id="eu7-JD-gGJ"/>
-                        <outlet property="thirdbttnlabel" destination="5Cq-SE-zBI" id="BvI-tS-pMU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
