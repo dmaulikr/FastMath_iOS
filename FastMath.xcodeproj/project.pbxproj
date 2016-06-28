@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		BEEA767F512051446F5668E5 /* Pods_FastMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B788BB9E533F7D82DE0663 /* Pods_FastMath.framework */; };
 		C63398FB1D21A941004ED3A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63398FA1D21A941004ED3A5 /* AppDelegate.swift */; };
-		C63398FD1D21A941004ED3A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63398FC1D21A941004ED3A5 /* ViewController.swift */; };
+		C63398FD1D21A941004ED3A5 /* FastMathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63398FC1D21A941004ED3A5 /* FastMathViewController.swift */; };
 		C63399001D21A941004ED3A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C63398FE1D21A941004ED3A5 /* Main.storyboard */; };
 		C63399021D21A941004ED3A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63399011D21A941004ED3A5 /* Assets.xcassets */; };
 		C63399051D21A941004ED3A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C63399031D21A941004ED3A5 /* LaunchScreen.storyboard */; };
 		C63399101D21A941004ED3A5 /* FastMathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C633990F1D21A941004ED3A5 /* FastMathTests.swift */; };
 		C633991B1D21A941004ED3A5 /* FastMathUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C633991A1D21A941004ED3A5 /* FastMathUITests.swift */; };
 		C63399291D21B4B4004ED3A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C63399281D21B4B4004ED3A5 /* GoogleService-Info.plist */; };
+		C633992E1D221AED004ED3A5 /* MathProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C633992D1D221AED004ED3A5 /* MathProblem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +41,7 @@
 		2CAEBA8562DF6985A67DE856 /* Pods-FastMath.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastMath.release.xcconfig"; path = "Pods/Target Support Files/Pods-FastMath/Pods-FastMath.release.xcconfig"; sourceTree = "<group>"; };
 		C63398F71D21A940004ED3A5 /* FastMath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastMath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C63398FA1D21A941004ED3A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C63398FC1D21A941004ED3A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C63398FC1D21A941004ED3A5 /* FastMathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastMathViewController.swift; sourceTree = "<group>"; };
 		C63398FF1D21A941004ED3A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C63399011D21A941004ED3A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C63399041D21A941004ED3A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 		C633991A1D21A941004ED3A5 /* FastMathUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastMathUITests.swift; sourceTree = "<group>"; };
 		C633991C1D21A941004ED3A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C63399281D21B4B4004ED3A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C633992D1D221AED004ED3A5 /* MathProblem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathProblem.swift; sourceTree = "<group>"; };
 		E6B788BB9E533F7D82DE0663 /* Pods_FastMath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FastMath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -123,7 +125,8 @@
 		C63398F91D21A941004ED3A5 /* FastMath */ = {
 			isa = PBXGroup;
 			children = (
-				C63398FC1D21A941004ED3A5 /* ViewController.swift */,
+				C633992D1D221AED004ED3A5 /* MathProblem.swift */,
+				C63398FC1D21A941004ED3A5 /* FastMathViewController.swift */,
 				C63398FE1D21A941004ED3A5 /* Main.storyboard */,
 				C633992A1D21B6F1004ED3A5 /* Supporting Files */,
 			);
@@ -343,7 +346,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C63398FD1D21A941004ED3A5 /* ViewController.swift in Sources */,
+				C63398FD1D21A941004ED3A5 /* FastMathViewController.swift in Sources */,
+				C633992E1D221AED004ED3A5 /* MathProblem.swift in Sources */,
 				C63398FB1D21A941004ED3A5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
