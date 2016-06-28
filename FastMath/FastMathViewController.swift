@@ -11,6 +11,9 @@ import Firebase
 
 class FastMathViewController: UIViewController {
     
+    @IBOutlet weak var problemStackView: UIStackView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var firstOperandLabel: UILabel!
     @IBOutlet weak var operationLabel: UILabel!
     @IBOutlet weak var secondOperandLabel: UILabel!
@@ -59,6 +62,8 @@ class FastMathViewController: UIViewController {
             let val3 = snapshot.childSnapshotForPath("operation").value as! String
             self.mathProblem.updateValues(val1, op2: val2, operation: val3)
             self.newMathProblem = (val1, val2, val3)
+            self.activityIndicator.stopAnimating()
+            self.problemStackView.hidden = false
         })
         
     }
@@ -66,6 +71,13 @@ class FastMathViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         resultTextView.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        if let refHandle = refHandle {
+            gameRef.removeObserverWithHandle(refHandle)
+        }
     }
     
     override func prefersStatusBarHidden() -> Bool {

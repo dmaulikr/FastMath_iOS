@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8Av-Dv-L2F">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8Av-Dv-L2F">
                                 <rect key="frame" x="182" y="80" width="236" height="83"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROS-kw-I7F">
@@ -46,6 +46,9 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="YUM-K4-jci">
+                                <rect key="frame" x="282" y="103" width="37" height="37"/>
+                            </activityIndicatorView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XNj-i6-8WY">
                                 <rect key="frame" x="193" y="208" width="214" height="102"/>
                                 <color key="backgroundColor" red="0.30588235289999999" green="0.35686274509999999" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -73,16 +76,20 @@
                         <color key="backgroundColor" red="0.18823529411764706" green="0.22745098039215686" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="8Av-Dv-L2F" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="3X1-GC-F7v"/>
+                            <constraint firstItem="YUM-K4-jci" firstAttribute="centerX" secondItem="8Av-Dv-L2F" secondAttribute="centerX" id="Fik-VC-PRs"/>
                             <constraint firstItem="UuB-3d-dVT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Vq2-Vr-WiM"/>
                             <constraint firstItem="UuB-3d-dVT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="Y6e-OY-6xG"/>
                             <constraint firstItem="XNj-i6-8WY" firstAttribute="top" secondItem="8Av-Dv-L2F" secondAttribute="bottom" constant="45" id="c75-uw-CL8"/>
                             <constraint firstItem="XNj-i6-8WY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f1b-C7-pe7"/>
                             <constraint firstItem="8Av-Dv-L2F" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fYo-oL-vrV"/>
+                            <constraint firstItem="YUM-K4-jci" firstAttribute="centerY" secondItem="8Av-Dv-L2F" secondAttribute="centerY" id="qXl-kr-QFm"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="YUM-K4-jci" id="xkr-ju-4L8"/>
                         <outlet property="firstOperandLabel" destination="ROS-kw-I7F" id="qKL-qR-ERb"/>
                         <outlet property="operationLabel" destination="eWg-xP-Qvv" id="yHi-cj-lcE"/>
+                        <outlet property="problemStackView" destination="8Av-Dv-L2F" id="S9J-kE-mZc"/>
                         <outlet property="problemStackViewTopConstraint" destination="3X1-GC-F7v" id="zC6-h5-LxO"/>
                         <outlet property="resultTextView" destination="XNj-i6-8WY" id="H8s-9z-fmM"/>
                         <outlet property="resultTextViewTopConstraint" destination="c75-uw-CL8" id="BwG-CC-LOQ"/>
