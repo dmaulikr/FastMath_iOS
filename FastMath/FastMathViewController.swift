@@ -18,7 +18,6 @@ class FastMathViewController: UIViewController {
         didSet {
             resultTextView.delegate = self
             resultTextView.layer.cornerRadius = 10.0
-            resultTextView.becomeFirstResponder()
             // Also changes the color of the blinking cursor
             UITextView.appearance().tintColor = UIColor(red: 238/255, green: 232/255, blue: 199/255, alpha: 1.0)
         }
@@ -45,6 +44,7 @@ class FastMathViewController: UIViewController {
         gameRef = ref.child(mathProblemPath)
         
         refHandle = gameRef.observeEventType(.Value, withBlock: { (snapshot) in
+            print("observer updated")
             let val1 = snapshot.childSnapshotForPath("op1").value as! Int
             let val2 = snapshot.childSnapshotForPath("op2").value as! Int
             let val3 = snapshot.childSnapshotForPath("operation").value as! String
@@ -60,6 +60,11 @@ class FastMathViewController: UIViewController {
                 print("authenticated \(user!.uid)")
             }
         })
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        resultTextView.becomeFirstResponder()
     }
     
     override func prefersStatusBarHidden() -> Bool {
