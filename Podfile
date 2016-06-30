@@ -4,5 +4,5 @@ use_frameworks!
 target 'FastMath' do
 end
 
-pod 'Firebase/Auth'
-pod 'Firebase/Database'
+#pod 'Firebase/Auth'
+#pod 'Firebase/Database'
